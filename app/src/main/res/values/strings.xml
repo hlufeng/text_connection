@@ -3,7 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="rdo_main_label">首页</string>
-    <string name="rdo_college_label">学院</string>
-    <string name="rdo_setting_label">设置</string>
+    <string name="main_label">首页</string>
+    <string name="college_label">学院</string>
+    <string name="setting_label">设置</string>
 </resources>

@@ -8,51 +8,85 @@
     tools:context=".MainActivity">
 
     <fragment
-        android:id="@+id/fragment_main"
+        android:id="@+id/main_fragment"
         android:name="com.example.lenovo.qimobigmissionapplication.MainFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="10" />
+        android:layout_weight="10"
+        android:layout_height="match_parent" />
 
     <fragment
-        android:id="@+id/fragment_college"
+        android:id="@+id/college_fragment"
         android:name="com.example.lenovo.qimobigmissionapplication.CollegeFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="10" />
+        android:layout_weight="10"
+        android:layout_height="match_parent" />
 
     <fragment
-        android:id="@+id/fragment_setting"
+        android:id="@+id/setting_fragment"
         android:name="com.example.lenovo.qimobigmissionapplication.SettingFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="10" />
+        android:layout_weight="10"
+        android:layout_height="match_parent" />
 
-    <RadioGroup
-        android:id="@+id/bottomGroup"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5"
         android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/radioMain"
-            style="@style/rg_btn_style"
-            android:drawableTop="@drawable/main"
-            android:text="@string/rdo_main_label" />
+        <LinearLayout
+            android:id="@+id/main_ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/radioCollege"
-            style="@style/rg_btn_style"
-            android:drawableTop="@drawable/college"
-            android:text="@string/rdo_college_label" />
+            <ImageView
+                android:id="@+id/image_main"
+                style="@style/btn_image"
+                android:src="@drawable/ic_main" />
 
-        <RadioButton
-            android:id="@+id/radioSetting"
-            style="@style/rg_btn_style"
-            android:drawableTop="@drawable/setting"
-            android:text="@string/rdo_setting_label" />
+            <TextView
+                android:id="@+id/tv_main"
+                style="@style/btn_text"
+                android:text="@string/main_label"/>
+        </LinearLayout>
 
-    </RadioGroup>
+        <LinearLayout
+            android:id="@+id/college_ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image_college"
+                style="@style/btn_image"
+                android:src="@drawable/ic_college" />
+
+            <TextView
+                android:id="@+id/tv_college"
+                style="@style/btn_text"
+                android:text="@string/college_label"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/setting_ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image_setting"
+                style="@style/btn_image"
+                android:src="@drawable/ic_setting" />
+
+            <TextView
+                android:id="@+id/tv_setting"
+                style="@style/btn_text"
+                android:text="@string/setting_label"/>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

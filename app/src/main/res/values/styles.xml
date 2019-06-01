@@ -17,19 +17,37 @@
         <item name="tabSelectedTextColor">?android:textColorPrimary</item>
     </style>
 
-    <style name="rg_btn_style">
-        <item name="android:button">@null</item>
-        <item name="android:gravity">center</item>
+    <style name="btn_image">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">2sp</item>
+        <item name="android:layout_marginTop">5sp</item>
+        <item name="android:layout_weight">10</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:layout_weight">2</item>
-        <item name="android:textSize">10sp</item>
-        <item name="android:drawablePadding">1dp</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:padding">7dp</item>
-        <!--
-        <item name="android:layout_marginBottom">4dp</item>
-        -->
-        <item name="android:background">@drawable/shape2</item>
     </style>
+
+    <style name="btn_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">3sp</item>
+        <item name="android:layout_marginTop">0sp</item>
+        <item name="android:layout_weight">10</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!--<style name="rg_btn_style">-->
+        <!--<item name="android:button">@null</item>-->
+        <!--<item name="android:gravity">center</item>-->
+        <!--<item name="android:layout_gravity">center</item>-->
+        <!--<item name="android:layout_weight">2</item>-->
+        <!--<item name="android:textSize">10sp</item>-->
+        <!--<item name="android:drawablePadding">1dp</item>-->
+        <!--<item name="android:layout_width">match_parent</item>-->
+        <!--<item name="android:padding">7dp</item>-->
+        <!--&lt;!&ndash;-->
+        <!--<item name="android:layout_marginBottom">4dp</item>-->
+        <!--&ndash;&gt;-->
+        <!--<item name="android:background">@drawable/shape2</item>-->
+    <!--</style>-->
 
 </resources>
