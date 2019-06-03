@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -28,7 +29,7 @@ public class CollegeListItemInfoActivity extends AppCompatActivity implements Ru
     String url;
     String TAG = "CollegeListItemInfoActivity";
     Handler handler;
-    TextView titletv, datetv, texttv, addtv;
+    TextView titletv, datetv, texttv, addtv,sourcetv;
     String title, date, text, add = "";
     String href;
 
@@ -41,10 +42,24 @@ public class CollegeListItemInfoActivity extends AppCompatActivity implements Ru
         datetv = findViewById(R.id.clii_date);
         texttv = findViewById(R.id.clii_text);
         addtv = findViewById(R.id.clii_add);
+        sourcetv =findViewById(R.id.clii_source);
 
         Intent intent = getIntent();
         url = intent.getStringExtra("url");
         Log.i(TAG, "onCreate: url:" + url);
+
+        //阅读原文控件
+        sourcetv.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
 
         Thread thread = new Thread(this);
         thread.start();
@@ -63,23 +78,46 @@ public class CollegeListItemInfoActivity extends AppCompatActivity implements Ru
                     titletv.setText(title);
                     datetv.setText(date);
                     texttv.setText(text);
-                    addtv.setText(add);
-                    addtv.setOnClickListener(new View.OnClickListener() {
+                    Log.i(TAG, "handleMessage: add:"+add);
+                    if (!add.equals("关闭 打印")){
+                        addtv.setText(add);
+                        addtv.setOnClickListener(new View.OnClickListener() {
 
-                        @Override
-                        public void onClick(View v) {
-                            // TODO Auto-generated method stub
-                            Intent intent = new Intent();
-                            intent.setAction(Intent.ACTION_VIEW);
-                            intent.setData(Uri.parse(href));
-                            startActivity(intent);
-                        }
-                    });
+                            @Override
+                            public void onClick(View v) {
+                                // TODO Auto-generated method stub
+                                Intent intent = new Intent();
+                                intent.setAction(Intent.ACTION_VIEW);
+                                intent.setData(Uri.parse(href));
+                                startActivity(intent);
+                            }
+                        });
+                    }else {
+                        addtv.setVisibility(addtv.INVISIBLE);//隐藏
+                    }
                 }
                 super.handleMessage(msg);
             }
         };
 
+        //添加返回键
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null){
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //添加返回键
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish(); // back button
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
