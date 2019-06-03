@@ -1,19 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CollegeFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:src="@drawable/ctitle" />
+
     <TextView
         android:id="@+id/college_tv1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="wrap_content"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:text="@string/college_title2"
+        android:layout_gravity="center"
+        android:drawableLeft="@drawable/ic_info"
+        android:layout_marginBottom="10sp"
+        android:layout_height="wrap_content" />
 
     <ListView
         android:id="@+id/clist"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-</FrameLayout>
+</LinearLayout>

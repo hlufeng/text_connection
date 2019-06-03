@@ -2,6 +2,7 @@ package com.example.lenovo.qimobigmissionapplication;
 
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -30,13 +32,15 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CollegeFragment extends Fragment implements Runnable{
+public class CollegeFragment extends Fragment implements Runnable,AdapterView.OnItemClickListener{
 
     String TAG="CollegeFragment";
     Handler handler;
     private ArrayList<HashMap<String, String>> listItems; // 存放文字、图片信息
     private SimpleAdapter listItemAdapter; // 适配器
     List<HashMap<String,String>> retList =new ArrayList<HashMap<String, String>>();
+    List<String> hrefs=new ArrayList<String>();
+    String url;
 
     public CollegeFragment() {
         // Required empty public constructor
@@ -71,6 +75,7 @@ public class CollegeFragment extends Fragment implements Runnable{
                 super.handleMessage(msg);
             }
         };
+        listView.setOnItemClickListener(this);
 
     }
 
@@ -90,11 +95,15 @@ public class CollegeFragment extends Fragment implements Runnable{
             Element ul=uls.get(17);
 //            Log.i(TAG, "run: "+ul);
             Elements lis=ul.getElementsByTag("li");
+            String a="https://it.swufe.edu.cn";
             for(Element li:lis){
 //                Log.i(TAG, "run: li"+li.text());
                 Elements spans=li.getAllElements();
                 String str=spans.get(2).text();
                 String val=spans.get(3).text();
+//                String a="https://it.swufe.edu.cn";
+                String href=a+spans.attr("href").substring(2);
+                Log.i(TAG, "run: href:"+href);
                 Log.i(TAG, "run: span3"+str);
                 Log.i(TAG, "run: span4"+val);
 
@@ -102,6 +111,7 @@ public class CollegeFragment extends Fragment implements Runnable{
                 map.put("ItemTitle", str);
                 map.put("ItemDate", val);
                 retList.add(map);
+                hrefs.add(href);
             }
             marker=true;
         } catch (IOException e) {
@@ -116,5 +126,14 @@ public class CollegeFragment extends Fragment implements Runnable{
         }
         msg.obj=retList;
         handler.sendMessage(msg);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent listItemInfo =new Intent(getActivity(),CollegeListItemInfoActivity.class);
+        url=hrefs.get(position);
+        Log.i(TAG, "onItemClick: url:"+url);
+        listItemInfo.putExtra("url",url);
+        startActivity(listItemInfo);
     }
 }
