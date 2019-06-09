@@ -9,4 +9,10 @@
     <string name="college_title1">经济信息工程学院</string>
     <string name="college_title2">通知公告</string>
     <string name="clii_source">阅读原文</string>
+    <string name="main1">星期一</string>
+    <string name="main2">星期二</string>
+    <string name="main3">星期三</string>
+    <string name="main4">星期四</string>
+    <string name="main5">星期五</string>
+    <string name="maintitle">课程表</string>
 </resources>

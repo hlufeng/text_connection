@@ -30,7 +30,7 @@ public class MainFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        TextView tv = (TextView)getView().findViewById(R.id.main_tv1);
-        tv.setText("主页面");
+//        TextView tv = (TextView)getView().findViewById(R.id.main_tv1);
+//        tv.setText("主页面");
     }
 }

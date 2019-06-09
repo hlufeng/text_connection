@@ -72,8 +72,8 @@ public class CollegeListItemInfoActivity extends AppCompatActivity implements Ru
                     title = bundle.get("title").toString();
                     date = bundle.get("date").toString();
                     text = bundle.get("text").toString();
-                    add = bundle.get("add").toString();
-                    href = bundle.get("href").toString();
+                    add = bundle.get("addition").toString();
+                    href = bundle.get("additionhref").toString();
                     Log.i(TAG, "handleMessage: add:" + add);
                     titletv.setText(title);
                     datetv.setText(date);
@@ -122,49 +122,71 @@ public class CollegeListItemInfoActivity extends AppCompatActivity implements Ru
 
     @Override
     public void run() {
-        Document doc = null;
-        try {
-            Thread.sleep(10);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        boolean marker = false;
-        try {
-            doc = Jsoup.connect(url).get();
-            Log.i(TAG, "run: " + doc.title());
-            Elements divs = doc.getElementsByTag("div");
-            //标题
-            title = divs.get(19).text();
-            //时间
-            Element div = divs.get(18);
-            div.getElementsByTag("span");
-            date = div.getAllElements().get(3).text();
-//            Log.i(TAG, "run: "+div.getAllElements().get(3).text());
-            //正文
-            text = divs.get(22).text();
-            //附件
-            add = divs.get(23).getElementsByAttribute("href").text();
-//            Log.i(TAG, "run: add:"+add);
-            String a = "https://it.swufe.edu.cn";
-            href = a + divs.get(23).getElementsByTag("a").attr("href");
-            Log.i(TAG, "run: href:"+href);
-            marker = true;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Log.i("List","run...");
         Bundle bundle = new Bundle();
-        bundle.putString("title", title);
-        bundle.putString("date", date);
-        bundle.putString("text", text);
-        bundle.putString("add", add);
-        bundle.putString("href", href);
-        Message msg = handler.obtainMessage(1);
-        //使用msg中的arg1属性标记操作是否成功
-        if (marker) {
-            msg.arg1 = 1;
-        } else {
-            msg.arg1 = 0;
+//        boolean marker = false;
+        DBManager dbManager = new DBManager(CollegeListItemInfoActivity.this);
+        //判断url是否在数据库中
+        if(dbManager.searchUrl(url)){
+            Log.i(TAG, "run: 数据库里已有此数据");
+            CollegeItem collegeItem=dbManager.getInfo(url);
+            bundle.putString("title", collegeItem.getTitle());
+            bundle.putString("date", collegeItem.getDate());
+            bundle.putString("text", collegeItem.getText());
+            bundle.putString("addition", collegeItem.getAddition());
+            bundle.putString("additionhref", collegeItem.getAdditionhref());
+//            marker = true;
+
+        }else {
+            Document doc = null;
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+//        boolean marker = false;
+            try {
+                Log.i(TAG, "run: 数据库没有此数据，需要爬取");
+                doc = Jsoup.connect(url).get();
+                Log.i(TAG, "run: " + doc.title());
+                Elements divs = doc.getElementsByTag("div");
+                //标题
+                title = divs.get(19).text();
+                //时间
+                Element div = divs.get(18);
+                div.getElementsByTag("span");
+                date = div.getAllElements().get(3).text();
+//            Log.i(TAG, "run: "+div.getAllElements().get(3).text());
+                //正文
+                text = divs.get(22).text();
+                //附件
+                add = divs.get(23).getElementsByAttribute("href").text();
+//            Log.i(TAG, "run: add:"+add);
+                String a = "https://it.swufe.edu.cn";
+                href = a + divs.get(23).getElementsByTag("a").attr("href");
+                Log.i(TAG, "run: href:" + href);
+//                marker = true;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            bundle.putString("title", title);
+            bundle.putString("date", date);
+            bundle.putString("text", text);
+            bundle.putString("addition", add);
+            bundle.putString("additionhref", href);
+
+            //更新数据库数据
+            CollegeItem collegeItem=new CollegeItem(title,date,text,add,url,href);
+            dbManager.add(collegeItem);
+            //使用msg中的arg1属性标记操作是否成功
         }
+
+//        if (marker) {
+//            msg.arg1 = 1;
+//        } else {
+//            msg.arg1 = 0;
+//        }
+        Message msg = handler.obtainMessage(1);
         msg.obj = bundle;
         handler.sendMessage(msg);
     }
