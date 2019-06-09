@@ -31,8 +31,8 @@ public class MyAdapter extends ArrayAdapter {
         TextView title = (TextView) itemView.findViewById(R.id.clist_tv1);
         TextView time = (TextView) itemView.findViewById(R.id.clist_tv2);
 
-        title.setText("Title:" + map.get("ItemTitle"));
-        time.setText("date:" + map.get("ItemDate"));
+        title.setText(map.get("ItemTitle"));
+        time.setText(map.get("ItemDate"));
 
         return itemView;
     }

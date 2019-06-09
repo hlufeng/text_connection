@@ -158,7 +158,14 @@ public class CollegeListItemInfoActivity extends AppCompatActivity implements Ru
                 date = div.getAllElements().get(3).text();
 //            Log.i(TAG, "run: "+div.getAllElements().get(3).text());
                 //正文
-                text = divs.get(22).text();
+                String t = divs.get(22).text();
+                String ps[]=t.split(" ");
+                for(String p: ps){
+                    text+="\u3000\u3000";
+                    text+=p;
+                    text+="\n\n";
+                }
+//                text.replace(null,"");
                 //附件
                 add = divs.get(23).getElementsByAttribute("href").text();
 //            Log.i(TAG, "run: add:"+add);
