@@ -1,6 +1,7 @@
 package com.example.lenovo.qimobigmissionapplication;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -32,6 +33,16 @@ public class SettingFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         TextView tv = (TextView)getView().findViewById(R.id.setting_tv1);
         tv.setText("设置页面");
+        View btn=getView().findViewById(R.id.button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(getActivity(),SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
+
 
 }
