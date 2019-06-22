@@ -17,6 +17,14 @@
     <string name="maintitle">课程表</string>
     <string name="my_app_name">西财事</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="class_time">课程星期:</string>
+    <string name="class_step">课时长度:</string>
+    <string name="class_index">第几节开始:</string>
+    <string name="class_name">课程名称:</string>
+    <string name="class_location">教室:</string>
+    <string name="class_teacher">老师:</string>
+    <string name="eidtclass_title">修改课程信息</string>
+    <string name="class_be">上课时间：</string>
 
     <!-- Strings related to Settings -->
 
@@ -89,4 +97,13 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="addclass_title">添加课程</string>
+    <string name="btn_add">添加课程</string>
+    <string name="editclass_unchange">不可修改项：</string>
+    <string name="editclass_change">可改项：</string>
+    <string name="eidt">修改</string>
+    <string name="setting_clearclass">清空课表</string>
+    <string name="setting_outlineinfo">离线通知</string>
+    <string name="setting_clearinfo">清空通知</string>
+    <string name="outlineinfo">离线通知</string>
 </resources>

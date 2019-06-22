@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/bg3"
     tools:context=".MainFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:id="@+id/textView7"
         android:layout_width="match_parent"
@@ -25,6 +28,7 @@
         android:background="@android:color/black"/>
 
     <LinearLayout
+        android:id="@+id/courselist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="13"
@@ -39,7 +43,7 @@
             <TextView
                 android:id="@+id/textView"
                 style="@style/course_title"
-                android:textSize="11sp"
+                android:textSize="15sp"
                 android:layout_weight="1"
                 android:text="time\\date" />
 
@@ -78,6 +82,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="6sp"
                                 android:layout_weight="1"
                                 android:text="1"/>
 
@@ -97,6 +102,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:layout_marginTop="4sp"
                                 android:text="4"/>
 
                         </LinearLayout>
@@ -106,7 +112,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginBottom="8sp"
+                        android:layout_marginBottom="4sp"
                         android:layout_marginLeft="8sp"
                         android:background="@android:color/black"/>
 
@@ -157,6 +163,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:layout_marginTop="3sp"
                                 android:text="9"/>
 
                         </LinearLayout>
@@ -167,7 +174,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginLeft="8sp"
-                        android:layout_marginBottom="8sp"
+                        android:layout_marginBottom="4sp"
                         android:background="@android:color/black"/>
 
                     <LinearLayout
@@ -272,56 +279,55 @@
             <TextView
                 android:id="@+id/textView2"
                 style="@style/course_title"
-                android:layout_weight="1"
                 android:text="@string/main1" />
 
             <TextView
-                style="@style/course_title"
-                android:layout_weight="1" />
+                android:id="@+id/w11"
+                style="@style/course_title" />
 
             <TextView
-                style="@style/course_title"
-                android:layout_weight="1"/>
+                android:id="@+id/w12"
+                style="@style/course_title"/>
 
             <TextView
-                style="@style/course_title"
-                android:layout_weight="1"/>
+                android:id="@+id/w13"
+                style="@style/course_title"/>
 
             <TextView
-                style="@style/course_title"
-                android:layout_weight="1" />
+                android:id="@+id/w14"
+                style="@style/course_title" />
 
             <TextView
-                style="@style/course_title"
-                android:layout_weight="1"/>
+                android:id="@+id/w15"
+                style="@style/course_title"/>
 
             <TextView
-                style="@style/course_title"
-                android:layout_weight="1"/>
+                android:id="@+id/w16"
+                style="@style/course_title"/>
 
             <TextView
-                style="@style/course_title"
-                android:layout_weight="1"/>
+                android:id="@+id/w17"
+                style="@style/course_title"/>
 
             <TextView
-                style="@style/course_title"
-                android:layout_weight="1" />
+                android:id="@+id/w18"
+                style="@style/course_title" />
 
             <TextView
-                style="@style/course_title"
-                android:layout_weight="1"/>
+                android:id="@+id/w19"
+                style="@style/course_title"/>
 
             <TextView
-                style="@style/course_title"
-                android:layout_weight="1" />
+                android:id="@+id/w110"
+                style="@style/course_title" />
 
             <TextView
-                style="@style/course_title"
-                android:layout_weight="1" />
+                android:id="@+id/w111"
+                style="@style/course_title" />
 
             <TextView
-                style="@style/course_title"
-                android:layout_weight="1" />
+                android:id="@+id/w112"
+                style="@style/course_title" />
 
         </LinearLayout>
 
@@ -341,7 +347,68 @@
             <TextView
                 android:id="@+id/textView3"
                 style="@style/course_title"
+                android:layout_weight="1"
                 android:text="@string/main2" />
+
+            <TextView
+                android:id="@+id/w21"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w22"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w23"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w24"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w25"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w26"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w27"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w28"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w29"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w210"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w211"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w212"
+                style="@style/course_title"
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -361,7 +428,68 @@
             <TextView
                 android:id="@+id/textView4"
                 style="@style/course_title"
+                android:layout_weight="1"
                 android:text="@string/main3" />
+
+            <TextView
+                android:id="@+id/w31"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w32"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w33"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w34"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w35"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w36"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w37"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w38"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w39"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w310"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w311"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w312"
+                style="@style/course_title"
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -381,7 +509,68 @@
             <TextView
                 android:id="@+id/textView5"
                 style="@style/course_title"
+                android:layout_weight="1"
                 android:text="@string/main4" />
+
+            <TextView
+                android:id="@+id/w41"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w42"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w43"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w44"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w45"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w46"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w47"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w48"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w49"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w410"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w411"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w412"
+                style="@style/course_title"
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -401,7 +590,68 @@
             <TextView
                 android:id="@+id/textView6"
                 style="@style/course_title"
+                android:layout_weight="1"
                 android:text="@string/main5" />
+
+            <TextView
+                android:id="@+id/w51"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w52"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w53"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w54"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w55"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w56"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w57"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w58"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w59"
+                style="@style/course_title"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/w510"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w511"
+                style="@style/course_title"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/w512"
+                style="@style/course_title"
+                android:layout_weight="1" />
 
         </LinearLayout>
 

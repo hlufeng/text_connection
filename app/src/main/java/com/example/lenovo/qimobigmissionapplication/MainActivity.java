@@ -1,10 +1,12 @@
 package com.example.lenovo.qimobigmissionapplication;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -21,11 +23,14 @@ public class MainActivity extends FragmentActivity {
     ImageView mainIG;
     ImageView collegeIG;
     ImageView settingIG;
+    String TAG="MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        ActionBar actionBar=getActionBar();
+//        actionBar.show();
 //        ImageView imageViewMain=findViewById(R.id.image_main);
 //        ImageView imageViewCollege=findViewById(R.id.image_college);
 //        ImageView imageViewSetting=findViewById(R.id.image_setting);
@@ -76,6 +81,7 @@ public class MainActivity extends FragmentActivity {
             fragmentTransaction = fragmentManager.beginTransaction().hide(mFragments[0]).hide(mFragments[1]).hide(mFragments[2]);
             switch (v.getId()){
                 case R.id.main_ll:
+                    mFragments[0].setUserVisibleHint(true);
                     fragmentTransaction.show(mFragments[0]).commit();
                     resetColor();
                     mainTV.setTextColor(getResources().getColor(R.color.blue));
@@ -86,12 +92,14 @@ public class MainActivity extends FragmentActivity {
                     resetColor();
                     collegeTV.setTextColor(getResources().getColor(R.color.blue));
                     collegeIG.setImageResource(R.drawable.ic_collegeclick);
+                    mFragments[0].setUserVisibleHint(false);
                     break;
                 case R.id.setting_ll:
                     fragmentTransaction.show(mFragments[2]).commit();
                     resetColor();
                     settingTV.setTextColor(getResources().getColor(R.color.blue));
                     settingIG.setImageResource(R.drawable.ic_settingclick);
+                    mFragments[0].setUserVisibleHint(false);
                     break;
                 default:
                     break;

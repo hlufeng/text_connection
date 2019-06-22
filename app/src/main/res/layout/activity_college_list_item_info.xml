@@ -8,6 +8,7 @@
     android:layout_height="match_parent"
     android:scrollbars="vertical"
     android:singleLine="false"
+    android:background="@mipmap/bg4"
     tools:context=".CollegeListItemInfoActivity">
 
     <ScrollView

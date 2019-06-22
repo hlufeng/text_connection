@@ -9,6 +9,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final int VERSION = 1;
     private static final String DB_NAME = "mycollege.db";
     public static final String TB_NAME = "tb_info";
+    public static final String TB_NAME2 = "class_info";
 
 
     public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory,
@@ -22,6 +23,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE "+TB_NAME+"(ID INTEGER PRIMARY KEY AUTOINCREMENT,TITLE TEXT,DATE TEXT,TEXT TEXT,ADDITION TEXT,URL TEXT,ADDITIONHREF TEXT)");
+        db.execSQL("CREATE TABLE "+TB_NAME2+"(ID TEXT PRIMARY KEY,WEEK INTEGER,CINDEX INTEGER,STEP INTEGER,NAME TEXT,LOCATION TEXT,TEACHER TEXT)");
     }
 
     @Override
