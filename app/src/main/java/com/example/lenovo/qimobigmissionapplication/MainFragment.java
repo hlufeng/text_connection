@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -29,12 +30,13 @@ import java.util.List;
 public class MainFragment extends Fragment {
 
     int week, index, step;
-    String TAG = "MainFragment";
+    final static String TAG = "MainFragment";
     String name, location, teacher, dbid;
     LinearLayout week1, week2, week3, week4, week5;
     DBManager2 dbManager2;
     LinearLayout.LayoutParams lp;
     int tid;
+    List<Integer> lid=new ArrayList<>();
 
     public MainFragment() {
         // Required empty public constructor
@@ -57,6 +59,7 @@ public class MainFragment extends Fragment {
     }
 
     public void init() {
+        Log.i(TAG, "init: ");
         dbManager2 = new DBManager2(getContext());
         List<ClassItem> list = dbManager2.listAll();
         for (ClassItem classItem : list) {
@@ -80,6 +83,9 @@ public class MainFragment extends Fragment {
             Log.i(TAG, "init: id:" + sid);
             //动态id寻找view
             final TextView view = getView().findViewById(getContext().getResources().getIdentifier(sid, "id", getContext().getPackageName()));
+            //所有课程的id值列表
+            Log.i(TAG, "init: id值："+view.getId());
+            lid.add(view.getId());
             //设置view
             lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, step);
             lp.gravity = Gravity.CENTER;
@@ -115,6 +121,15 @@ public class MainFragment extends Fragment {
                     return true;
                 }
             });
+        }
+        try {
+            if (list.size() == 0) {
+                deletAllClass(lid);
+                lid.clear();
+                Log.i(TAG, "init: 课程数据库为空");
+            }
+        }catch (Exception e){
+            Log.i(TAG, "init: 课程为空且lid也为空");
         }
     }
 
@@ -165,6 +180,13 @@ public class MainFragment extends Fragment {
         Intent intent = new Intent(getActivity(), EditClassActivity.class);
         intent.putExtra("id", idname);
         startActivity(intent);
+    }
+
+    public void deletAllClass(List lid){
+        for (Object id:lid){
+            int id1=(Integer)id;
+            deletClass(id1);
+        }
     }
 
     @Override

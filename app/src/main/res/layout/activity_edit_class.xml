@@ -4,15 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@mipmap/bg8"
     android:layout_height="match_parent"
     tools:context=".EditClassActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="30sp"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="30sp"
         android:layout_marginBottom="20sp"
         android:text="@string/eidtclass_title" />
 
@@ -20,6 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="45sp"
         android:textSize="25sp"
         android:text="@string/editclass_unchange" />
 
@@ -32,13 +43,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20sp"
+            android:layout_marginLeft="30sp"
+            android:layout_marginRight="15sp"
             android:textSize="20sp"
             android:text="@string/class_time"/>
 
         <TextView
             android:id="@+id/classweek"
             android:textSize="20sp"
+            android:layout_marginRight="30sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -53,13 +66,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:layout_marginHorizontal="20sp"
+            android:layout_marginLeft="30sp"
+            android:layout_marginRight="15sp"
             android:text="@string/class_be"/>
 
         <TextView
             android:id="@+id/classbe"
             android:layout_width="match_parent"
             android:textSize="20sp"
+            android:layout_marginRight="30sp"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
@@ -79,13 +94,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20sp"
+            android:layout_marginLeft="30sp"
+            android:layout_marginRight="15sp"
             android:textSize="20sp"
             android:text="@string/class_name"/>
 
         <EditText
             android:id="@+id/classname"
             android:layout_width="match_parent"
+            android:layout_marginRight="30sp"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
@@ -97,13 +114,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20sp"
+            android:layout_marginLeft="30sp"
+            android:layout_marginRight="15sp"
             android:textSize="20sp"
             android:text="@string/class_location"/>
 
         <EditText
             android:id="@+id/classlocation"
             android:layout_width="match_parent"
+            android:layout_marginRight="30sp"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
@@ -116,12 +135,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:layout_marginHorizontal="20sp"
+            android:layout_marginLeft="30sp"
+            android:layout_marginRight="15sp"
             android:text="@string/class_teacher"/>
 
         <EditText
             android:id="@+id/classteacher"
             android:layout_width="match_parent"
+            android:layout_marginRight="30sp"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
@@ -133,5 +154,8 @@
         android:layout_marginHorizontal="120sp"
         android:onClick="edit"
         android:text="@string/eidt" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
